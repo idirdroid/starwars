@@ -34,7 +34,8 @@ SELECT max(cost_in_credits) FROM vehicules
 --ORDER BY v.cost_in_credits DESC
 
 
-
-
 -- Sélectionner les vaisseaux et afficher le rapport cout / nb_passagers
+SELECT name, model, (vehicules.cost_in_credits/vehicules.passengers) as rapport FROM vehicules
+join type_vehicule tv on tv.id_type = vehicules.id_type
+WHERE tv.type ilike 'Starships' AND vehicules.passengers IS NOT NULL AND vehicules.passengers != 0 AND vehicules.cost_in_credits IS NOT NULL
 
